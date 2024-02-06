@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterFormComponent {
 registerForm!: FormGroup
 
-constructor(private fb: FormBuilder, private AuthService: AuthService){
+constructor(private fb: FormBuilder, private authService: AuthService){
   this.registerForm = this.fb.group({
     name: ['', Validators.required],
     surname: ['', Validators.required],
@@ -29,17 +29,19 @@ formHandler() {
       email,
       password
     }
-      this.AuthService.register(objectToSend).subscribe({
+      this.authService.register(objectToSend).subscribe({
+  
         next: (response) => {
-
+          console.log(response)
         },
         error: (error) => {
 
         }
       })
+      this.registerForm.reset()
       }
   }
 }
 
 
-}
+

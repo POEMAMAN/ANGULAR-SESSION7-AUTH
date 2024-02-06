@@ -38,13 +38,13 @@ const register = async (req, res, next) => {
         }
         const userDB = await user.save();
 
-        await transporter.sendMail({
-            from: '"Cristian Farriol " <//emisor>', // sender address
-            to: `${req.body.email}`, // list of receivers
-            subject: "Enviado desde nodemailer ✔", // Subject line
-            text: "Hello world?", // plain text body
-            html: `<b>Bienvenido a la aplicacion! ${req.body.name}, solo te queda un paso por realizar, pincha en el siguiente enláce para completar tu registro: http://localhost:8084/user-confirm/${user.token} </b>`, // html body
-          });
+        // await transporter.sendMail({
+        //     from: '"Cristian Farriol " <//emisor>', // sender address
+        //     to: `${req.body.email}`, // list of receivers
+        //     subject: "Enviado desde nodemailer ✔", // Subject line
+        //     text: "Hello world?", // plain text body
+        //     html: `<b>Bienvenido a la aplicacion! ${req.body.name}, solo te queda un paso por realizar, pincha en el siguiente enláce para completar tu registro: http://localhost:8084/user-confirm/${user.token} </b>`, // html body
+        //   });
         return res.status(201).json(userDB)
 
     } catch (error) {

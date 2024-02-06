@@ -10,7 +10,7 @@ export class AuthService {
 
   register(user: any) {
 
-    return this.http.post('http:/localhost:8084/api/users/register', user)
+    return this.http.post('http://localhost:8084/api/users/register', user)
   }
 
 
