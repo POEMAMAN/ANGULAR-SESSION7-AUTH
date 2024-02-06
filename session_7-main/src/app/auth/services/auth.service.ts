@@ -17,7 +17,8 @@ export class AuthService {
   }
 
   logout() {
-    const token = sessionStorage.getItem('token-products')
+    const token = JSON.parse(sessionStorage.getItem('token-products')!)
+    //lo desparseamos porque antes lo parseamos
     const headers = {
       'Authorization': `Bearer ${token}`
       //en vez de remove item, primero verificamos que estamos logados en el back, y luego eliminamos el local dentro de product.compoponenets.ts
