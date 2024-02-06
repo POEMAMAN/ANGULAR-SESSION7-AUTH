@@ -22,8 +22,9 @@ export class LoginFormComponent {
     }
     if(regExpEmail.test(this.email) && regExpPassword.test(this.password)){
       this.authService.login(userObject).subscribe({
-        next: (response) => {
+        next: (response: any) => {
             if(response){
+              sessionStorage.setItem('token-products', JSON.stringify(response.token))
                 this.router.navigate(['products'])
             }
         },
