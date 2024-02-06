@@ -12,7 +12,7 @@ export class AuthService {
 
     return this.http.post('http://localhost:8084/api/users/register', user)
   }
-
-
-
+  login(user: any) {
+    return this.http.post('http://localhost:8084/api/users/login', user)
+  }
 }

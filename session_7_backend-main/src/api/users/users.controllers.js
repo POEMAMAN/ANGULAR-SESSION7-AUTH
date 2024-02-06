@@ -34,7 +34,7 @@ const register = async (req, res, next) => {
         const userExist = await User.findOne({ email: user.email })
         if (userExist) {
             const error = new Error("¡El correo ya existe, puedes solicitar crear una nueva contraseña si la has olvidado!");
-            return res.json({msg: error.message})
+            return res.status(401).json({msg: error.message})
         }
         const userDB = await user.save();
 
@@ -82,10 +82,11 @@ const login = async (req, res, next) => {
             return res.json({msg: error.message})
         }
 
-        if (!user.confirmed){
-            const error = new Error("¡Aun no has confirmado tu cuenta!");
-            return res.json({msg: error.message})
-        }
+        // if (!user.confirmed){
+        //     const error = new Error("¡Aun no has confirmado tu cuenta!");
+        //     return res.json({msg: error.message})
+        // }
+        //****** ponerlo de nuevo cuando tengamos nuestra base propia */
         if (await user.passwordCheck(req.body.password)) {
                  // Generamos el Token
             const token = generateToken(user._id, user.email);

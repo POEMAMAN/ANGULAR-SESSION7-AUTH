@@ -8,7 +8,8 @@ import { LoginFormComponent } from './auth/components/login-form/login-form.comp
 import { LoginPageComponent } from './auth/pages/login-page/login-page.component';
 import { RegisterPageComponent } from './auth/pages/register-page/register-page.component';
 import { RegisterFormComponent } from './auth/components/register-form/register-form.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ProductsComponent } from './products/products.component'
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http'
     LoginFormComponent,
     RegisterPageComponent,
     RegisterFormComponent,
+    ProductsComponent,
 ],
   imports: [
     BrowserModule,
